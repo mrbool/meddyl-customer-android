@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/activity_horizontal_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:background="@color/white" >
+
+    <com.gtsoft.meddyl.customer.system.gtsoft.GTTextView
+        android:id="@+id/txvGetApp1"
+        android:layout_marginTop="@dimen/big_space"
+        android:maxLines="1"
+        android:layout_centerHorizontal="true"
+        android:text="@string/merchant_app_text_view_get_app1"
+        style="@style/text_view_dark_gray_26" />
+
+    <com.gtsoft.meddyl.customer.system.gtsoft.GTTextView
+        android:id="@+id/txvGetApp2"
+        android:layout_marginTop="@dimen/small_space"
+        android:layout_below="@+id/txvGetApp1"
+        android:gravity="center_horizontal"
+        android:text="@string/merchant_app_text_view_get_app2"
+        style="@style/text_view_dark_gray_19" />
+
+    <com.gtsoft.meddyl.customer.system.gtsoft.GTButton
+        android:id="@+id/btnInstall"
+        android:text="@string/merchant_app_button_install"
+        app:layout_widthPercent="50%"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/big_space"
+        android:layout_below="@+id/txvGetApp2"
+        style="@style/button_blue"/>
+
+</android.support.percent.PercentRelativeLayout>
+

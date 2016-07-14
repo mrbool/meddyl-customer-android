@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <RelativeLayout android:layout_width="match_parent"
+                    android:id="@+id/relativeLayout1"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="0dp">
+
+        <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:orientation="vertical">
+
+                    <com.gtsoft.meddyl.customer.system.gtsoft.GTTextView
+                        android:id="@+id/txvCertificateIdLabel"
+                        android:layout_marginTop="@dimen/big_space"
+                        android:maxLines="1"
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        style="@style/text_view_dark_gray_26"
+                        android:text="Certificate Id"
+                        android:visibility="invisible" />
+
+                    <com.gtsoft.meddyl.customer.system.gtsoft.GTTextView
+                        android:id="@+id/txvCertificateCode"
+                        android:layout_marginTop="@dimen/small_space"
+                        android:maxLines="1"
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_below="@+id/txvCertificateIdLabel"
+                        style="@style/text_view_dark_gray_29" />
+
+                    <com.gtsoft.meddyl.customer.system.gtsoft.GTTextView
+                        android:id="@+id/txvStatus"
+                        android:layout_marginTop="@dimen/small_space"
+                        android:maxLines="1"
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_below="@+id/txvCertificateCode"
+                        style="@style/text_view_dark_gray_22" />
+
+                    <View
+                        android:id="@+id/vw1"
+                        android:layout_width="fill_parent"
+                        android:layout_marginTop="@dimen/big_space"
+                        android:layout_height="1dip"
+                        android:background="#BEBEBE"
+                        android:layout_below="@+id/txvStatus"
+                        android:visibility="invisible" />
+
+                    <com.gtsoft.meddyl.customer.system.gtsoft.GTTextView
+                        android:id="@+id/txvIssuedTo"
+                        android:layout_marginTop="@dimen/big_space"
+                        android:maxLines="1"
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_below="@+id/vw1"
+                        style="@style/text_view_dark_gray_22" />
+
+                    <com.gtsoft.meddyl.customer.system.gtsoft.GTTextView
+                        android:id="@+id/txvPurchasedOn"
+                        android:layout_marginTop="@dimen/medium_space"
+                        android:maxLines="1"
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_below="@+id/txvIssuedTo"
+                        style="@style/text_view_dark_gray_22" />
+
+                    <View
+                        android:id="@+id/vw2"
+                        android:layout_width="fill_parent"
+                        android:layout_marginTop="@dimen/big_space"
+                        android:layout_height="1dip"
+                        android:background="#BEBEBE"
+                        android:layout_below="@+id/txvPurchasedOn"
+                        android:visibility="invisible" />
+
+                    <com.gtsoft.meddyl.customer.system.gtsoft.GTTextView
+                        android:id="@+id/txvCompanyName"
+                        android:layout_marginTop="@dimen/big_space"
+                        android:maxLines="1"
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_below="@+id/vw2"
+                        style="@style/text_view_dark_gray_29" />
+
+                    <com.gtsoft.meddyl.customer.system.gtsoft.GTTextView
+                        android:id="@+id/txvDeal"
+                        android:layout_marginTop="@dimen/small_space"
+                        android:maxLines="1"
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_below="@+id/txvCompanyName"
+                        style="@style/text_view_dark_gray_29" />
+
+                    <com.gtsoft.meddyl.customer.system.gtsoft.GTTextView
+                        android:id="@+id/txvExpirationDate"
+                        android:layout_marginTop="@dimen/small_space"
+                        android:maxLines="1"
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_below="@+id/txvDeal"
+                        style="@style/text_view_dark_gray_26" />
+
+                    <ImageView
+                        android:id="@+id/imvMerchantLogo"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:width="50dp"
+                        android:height="50dp"
+                        android:scaleType="fitXY"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="@dimen/big_space"
+                        android:background="#000000"
+                        android:padding="1dp"
+                        android:layout_below="@+id/txvExpirationDate"
+                        android:visibility="invisible" />
+
+                    <View
+                        android:id="@+id/vw3"
+                        android:layout_width="fill_parent"
+                        android:layout_marginTop="@dimen/big_space"
+                        android:layout_height="1dip"
+                        android:background="#BEBEBE"
+                        android:layout_below="@+id/imvMerchantLogo"
+                        android:visibility="invisible" />
+
+                </RelativeLayout>
+
+                <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+                          xmlns:map="http://schemas.android.com/apk/res-auto"
+                          xmlns:tools="http://schemas.android.com/tools"
+                          android:id="@+id/mpvMap"
+                          android:name="com.google.android.gms.maps.SupportMapFragment"
+                          android:layout_width="match_parent"
+                          android:layout_height="200dp"
+                          android:layout_marginTop="@dimen/big_space"
+                          tools:layout="@layout/certificate_detail"/>
+                <!--tools:context="com.gtsoft.meddyl.customer.views.object.MapsActivity"-->
+                <!--"com.google.android.gms.maps.SupportMapFragment"-->
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:orientation="vertical">
+
+                    <com.gtsoft.meddyl.customer.system.gtsoft.GTTextView
+                        android:id="@+id/txvAddress1"
+                        android:layout_marginTop="@dimen/small_space"
+                        android:maxLines="1"
+                        android:layout_width="match_parent"
+                        style="@style/text_view_dark_gray_19" />
+
+                    <com.gtsoft.meddyl.customer.system.gtsoft.GTTextView
+                        android:id="@+id/txvAddress2"
+                        android:layout_marginTop="@dimen/small_space"
+                        android:maxLines="1"
+                        android:layout_width="match_parent"
+                        android:layout_below="@+id/txvAddress1"
+                        style="@style/text_view_dark_gray_19" />
+
+                    <com.gtsoft.meddyl.customer.system.gtsoft.GTTextView
+                        android:id="@+id/txvDirections"
+                        android:layout_marginTop="@dimen/big_space"
+                        android:maxLines="1"
+                        android:layout_width="match_parent"
+                        android:layout_below="@+id/txvAddress2"
+                        android:textColor="@color/blue"
+                        style="@style/text_view_dark_gray_19"
+                        android:text="@string/merchant_info_text_directions"/>
+
+                    <com.gtsoft.meddyl.customer.system.gtsoft.GTTextView
+                        android:id="@+id/txvPhone"
+                        android:layout_marginTop="@dimen/big_space"
+                        android:maxLines="1"
+                        android:layout_width="match_parent"
+                        android:layout_below="@+id/txvDirections"
+                        android:textColor="@color/blue"
+                        style="@style/text_view_dark_gray_19" />
+
+                    <com.gtsoft.meddyl.customer.system.gtsoft.GTTextView
+                        android:id="@+id/txvWebSite"
+                        android:layout_marginTop="@dimen/big_space"
+                        android:maxLines="1"
+                        android:layout_width="match_parent"
+                        android:layout_below="@+id/txvPhone"
+                        android:textColor="@color/blue"
+                        style="@style/text_view_dark_gray_19"
+                        android:text="@string/merchant_info_text_website" />
+
+                    <View
+                        android:id="@+id/vw4"
+                        android:layout_width="fill_parent"
+                        android:layout_marginTop="@dimen/big_space"
+                        android:layout_height="1dip"
+                        android:background="#BEBEBE"
+                        android:layout_below="@+id/txvWebSite"
+                        android:visibility="invisible" />
+
+                    <com.gtsoft.meddyl.customer.system.gtsoft.GTTextView
+                        android:id="@+id/txvFinePrintLabel"
+                        android:layout_marginTop="@dimen/big_space"
+                        android:maxLines="1"
+                        android:layout_width="match_parent"
+                        android:layout_below="@+id/vw4"
+                        style="@style/text_view_dark_gray_19"
+                        android:text="FINE PRINT"
+                        android:visibility="invisible"/>
+
+                    <com.gtsoft.meddyl.customer.system.gtsoft.GTTextView
+                        android:id="@+id/txvFinePrint"
+                        android:layout_marginTop="@dimen/small_space"
+                        android:layout_width="match_parent"
+                        android:layout_below="@+id/txvFinePrintLabel"
+                        style="@style/text_view_dark_gray_19" />
+
+                    <View
+                        android:id="@+id/vw5"
+                        android:layout_width="fill_parent"
+                        android:layout_marginTop="@dimen/big_space"
+                        android:layout_height="1dip"
+                        android:background="#BEBEBE"
+                        android:layout_below="@+id/txvFinePrint"
+                        android:visibility="invisible"  />
+
+                    <com.gtsoft.meddyl.customer.system.gtsoft.GTTextView
+                        android:id="@+id/txvInstructionsLabel"
+                        android:layout_marginTop="@dimen/big_space"
+                        android:maxLines="1"
+                        android:layout_width="match_parent"
+                        android:layout_below="@+id/vw5"
+                        style="@style/text_view_dark_gray_19"
+                        android:text="INSTRUCTIONS"
+                        android:visibility="invisible" />
+
+                    <com.gtsoft.meddyl.customer.system.gtsoft.GTTextView
+                        android:id="@+id/txvInstructions"
+                        android:layout_marginTop="@dimen/small_space"
+                        android:layout_marginBottom="@dimen/big_space"
+                        android:layout_width="match_parent"
+                        android:layout_below="@+id/txvInstructionsLabel"
+                        style="@style/text_view_dark_gray_19" />
+
+                </RelativeLayout>
+            </LinearLayout>
+
+        </ScrollView>
+
+    </RelativeLayout>
+</LinearLayout>

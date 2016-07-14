@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:segmentedgroup="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <info.hoang8f.android.segmented.SegmentedGroup
+        android:id="@+id/sgCertificates"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/small_space"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        segmentedgroup:sc_border_width="1dp"
+        segmentedgroup:sc_corner_radius="5dp"
+        segmentedgroup:sc_tint_color="#D50F25"
+        segmentedgroup:sc_checked_text_color="#ffffff">
+
+        <RadioButton
+            android:id="@+id/rbActive"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Active"
+            style="@style/RadioButton" />
+
+        <RadioButton
+            android:id="@+id/rbAll"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="All"
+            style="@style/RadioButton" />
+    </info.hoang8f.android.segmented.SegmentedGroup>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/srlCertificates"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <ListView
+            android:id="@+id/lvCertificates"
+            style="@style/list_view"
+            android:dividerHeight="6.0sp" />
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <com.gtsoft.meddyl.customer.system.gtsoft.GTTextView
+        android:id="@+id/txvNoCertificates"
+        android:layout_marginTop="150dp"
+        android:gravity="center_horizontal"
+        style="@style/text_view_dark_gray_22"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
+
+</LinearLayout>
+
+

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"  >
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerInParent="true">
+
+        <com.gtsoft.meddyl.customer.system.gtsoft.GTTextView
+            android:id="@+id/txtHeaderTitle"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:linksClickable="true"
+            android:textSize="22sp"
+            android:layout_centerInParent="true" />
+
+        <com.gtsoft.meddyl.customer.system.gtsoft.GTTextView
+            android:id="@+id/txtLeftButton"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:linksClickable="true"
+            android:textSize="16sp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:paddingTop="18dp"
+            android:clickable="true"
+            android:gravity="left" />
+
+        <com.gtsoft.meddyl.customer.system.gtsoft.GTTextView
+            android:id="@+id/txtRightButton"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:linksClickable="true"
+            android:clickable="true"
+            android:textSize="16sp"
+            android:layout_toRightOf="@+id/txtHeaderTitle"
+            android:layout_toEndOf="@+id/txtHeaderTitle"
+            android:gravity="right"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:paddingTop="18dp"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

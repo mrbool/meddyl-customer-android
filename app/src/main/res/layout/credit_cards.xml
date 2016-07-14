@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.gtsoft.meddyl.customer.views.object.Credit_Cards">
+
+    <com.baoyz.swipemenulistview.SwipeMenuListView
+        android:id="@+id/lvCreditCards"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight=".5dp"
+        style="@style/list_view" />
+
+    <com.gtsoft.meddyl.customer.system.gtsoft.GTTextView
+        android:id="@+id/txvNoCards"
+        android:layout_marginTop="150dp"
+        android:layout_centerHorizontal="true"
+        android:text="@string/credit_cards_text_view_no_cards"
+        style="@style/text_view_dark_gray_22"
+        android:visibility="gone"/>
+
+</RelativeLayout>

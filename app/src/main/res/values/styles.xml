@@ -1,0 +1,310 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryDark">@color/meddyl_pink</item>
+        <item name="colorAccent">@color/meddyl_pink</item>
+        <item name="android:homeAsUpIndicator">@drawable/arrow_back</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+    <!-- Bottom Bar -->
+    <style name="bottom_bar_text">
+        <item name="android:textSize">10sp</item>
+    </style>
+
+
+    <!-- Switch -->
+    <style name="switch_green">
+        <item name="colorControlActivated">@color/green</item>
+    </style>
+
+    <!-- Buttons -->
+    <style name="button_white">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:textColor">#cd5c5c</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">1</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">2</item>
+        <item name="android:background">@drawable/button_white_format</item>
+    </style>
+
+    <style name="button_blue">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">1</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">2</item>
+        <item name="android:background">@drawable/button_blue_format</item>
+    </style>
+
+    <style name="button_gray">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">1</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">2</item>
+        <item name="android:background">@drawable/button_gray_format</item>
+    </style>
+
+    <style name="button_red">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">1</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">2</item>
+        <item name="android:background">@drawable/button_red_format</item>
+    </style>
+
+    <style name="button_green">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">1</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">2</item>
+        <item name="android:background">@drawable/button_green_format</item>
+    </style>
+
+    <style name="button_pink">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:textColor">@color/dark_gray</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">1</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">2</item>
+        <item name="android:background">@drawable/button_pink_format</item>
+    </style>
+
+    <style name="button_facebook_login">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">1</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">2</item>
+        <item name="android:background">@drawable/button_facebook_login_format</item>
+    </style>
+
+
+    <!-- Text View -->
+    <style name="text_view_dark_gray_29">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/dark_gray</item>
+        <item name="android:textSize">29sp</item>
+    </style>
+
+    <style name="text_view_dark_gray_26">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/dark_gray</item>
+        <item name="android:textSize">26sp</item>
+    </style>
+
+    <style name="text_view_dark_gray_22">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/dark_gray</item>
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="text_view_dark_gray_19">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/dark_gray</item>
+        <item name="android:textSize">19sp</item>
+    </style>
+
+    <style name="text_view_dark_gray_16">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/dark_gray</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="text_view_blue_18">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/blue</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="text_view_blue_21">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/blue</item>
+        <item name="android:textSize">21sp</item>
+    </style>
+
+
+    <!-- Edit Text -->
+    <style name="edit_text_text">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:background">@drawable/edit_text_format</item>
+        <item name="android:inputType">text</item>
+        <item name="android:imeOptions">actionDone</item>
+        <item name="android:maxLength">100</item>
+        <item name="android:textColorHint">@color/light_gray</item>
+    </style>
+
+    <style name="edit_text_number">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:background">@drawable/edit_text_format</item>
+        <item name="android:inputType">number</item>
+        <item name="android:imeOptions">actionDone</item>
+        <item name="android:textColorHint">@color/light_gray</item>
+    </style>
+
+    <style name="edit_text_multiline">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:background">@drawable/edit_text_format</item>
+        <item name="android:inputType">textMultiLine</item>
+        <item name="android:maxLines">10</item>
+        <item name="android:layout_height">100dp</item>
+        <item name="android:singleLine">false</item>
+        <item name="android:scrollHorizontally">true</item>
+        <item name="android:gravity">top</item>
+        <item name="android:textColorHint">@color/light_gray</item>
+    </style>
+
+    <style name="edit_text_date">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:background">@drawable/edit_text_format</item>
+        <item name="android:inputType">date</item>
+        <item name="android:imeOptions">actionDone</item>
+        <item name="android:textColorHint">@color/light_gray</item>
+    </style>
+
+    <style name="edit_text_email">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:background">@drawable/edit_text_format</item>
+        <item name="android:inputType">textEmailAddress</item>
+        <item name="android:imeOptions">actionDone</item>
+        <item name="android:maxLength">200</item>
+        <item name="android:hint">Email</item>
+        <item name="android:textColorHint">@color/light_gray</item>
+    </style>
+
+    <style name="edit_text_password">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:background">@drawable/edit_text_format</item>
+        <item name="android:inputType">textPassword</item>
+        <item name="android:imeOptions">actionDone</item>
+        <item name="android:maxLength">50</item>
+        <item name="android:hint">Password</item>
+        <item name="android:textColorHint">@color/light_gray</item>
+    </style>
+
+    <style name="edit_text_zip_code">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:background">@drawable/edit_text_format</item>
+        <item name="android:inputType">number</item>
+        <item name="android:imeOptions">actionDone</item>
+        <item name="android:maxLength">5</item>
+        <item name="android:hint">Zip Code</item>
+        <item name="android:textColorHint">@color/light_gray</item>
+    </style>
+
+    <style name="edit_text_phone">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:background">@drawable/edit_text_format</item>
+        <item name="android:inputType">phone</item>
+        <item name="android:imeOptions">actionDone</item>
+        <item name="android:hint">Phone</item>
+        <item name="android:textColorHint">@color/light_gray</item>
+    </style>
+
+    <style name="edit_text_name">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:background">@drawable/edit_text_format</item>
+        <item name="android:inputType">textPersonName</item>
+        <item name="android:imeOptions">actionDone</item>
+        <item name="android:maxLength">100</item>
+        <item name="android:textColorHint">@color/light_gray</item>
+    </style>
+
+
+    <!-- List View -->
+    <style name="list_view">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:divider">@android:color/transparent</item>
+        <item name="android:dividerHeight">18.0sp</item>
+    </style>
+
+
+    <!-- Radio Button -->
+    <style name="RadioButton">
+        <item name="android:textColor">@drawable/button_text_color</item>
+        <item name="android:minHeight">33dp</item>
+        <item name="android:minWidth">70dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:button">@null</item>
+        <item name="android:paddingLeft">5dp</item>
+        <item name="android:paddingRight">5dp</item>
+        <item name="android:textSize">18dp</item>
+    </style>
+
+
+</resources>

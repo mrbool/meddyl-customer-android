@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/llyMaster"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#80000000">
+
+
+    <FrameLayout
+        android:id="@+id/rloInner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="100dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginRight="25dp"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:orientation="vertical">
+
+            <com.gtsoft.meddyl.customer.system.gtsoft.GTTextView
+                android:id="@+id/txvHeader"
+                android:layout_marginTop="@dimen/big_space"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                style="@style/text_view_dark_gray_22"  />
+
+            <com.gtsoft.meddyl.customer.system.gtsoft.GTTextView
+                android:id="@+id/txvLocationServices"
+                android:layout_marginTop="@dimen/big_space"
+                android:maxLines="1"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:textColor="@color/blue"
+                android:text="Turn on Location Services"
+                style="@style/text_view_dark_gray_22" />
+
+            <com.gtsoft.meddyl.customer.system.gtsoft.GTTextView
+                android:id="@+id/txvSearchSettings"
+                android:layout_marginTop="@dimen/big_space"
+                android:maxLines="1"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:textColor="@color/blue"
+                android:text="Update Search Settings"
+                style="@style/text_view_dark_gray_22" />
+
+            <com.gtsoft.meddyl.customer.system.gtsoft.GTButton
+                android:id="@+id/btnGotIt"
+                android:layout_marginTop="@dimen/big_space"
+                android:text="Got It!"
+                style="@style/button_pink" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</FrameLayout>

@@ -1,0 +1,59 @@
+<resources>
+    <string name="app_name">Meddyl</string>
+    <string name="facebook_app_id">862863927170381</string>
+
+    <!-- These strings are only for our CUSTOM error activity, if you are using the default activity, they are not needed! -->
+    <string name="error_title">Something went wrong!</string>
+    <string name="error_occurred">An error occurred. We\'re deeply sorry.</string>
+    <string name="error_details">Error details:</string>
+    <string name="unknown_exception">Unknown exception</string>
+    <string name="restart_app">Restart app</string>
+    <string name="close_app">Close app</string>
+
+    <!-- Tab Menu Screen -->
+    <string name="tab_controller_tab_1">Deals</string>
+    <string name="tab_controller_tab_2">Certificates</string>
+    <string name="tab_controller_tab_3">Promotions</string>
+    <string name="tab_controller_tab_4">Account</string>
+
+
+    <!-- Credit_Card_Add Screen -->
+    <string name="credit_card_add_button_add">Add Card</string>
+
+    <!-- Credit Cards Screen -->
+    <string name="credit_cards_text_view_no_cards">You have no cards on file</string>
+
+    <!-- Deals Screen -->
+    <string name="deals_text_view_no_deals_1">Sorry, there are no deals in your area</string>
+    <string name="deals_text_view_no_deals_2">Pull down to refresh</string>
+
+    <!-- Deals Purchase Screen -->
+    <string name="deal_purchase_text_view_use_different_card">Use a different card</string>
+    <string name="deal_purchase_text_view_add_card">Add a Credit Card</string>
+
+    <!-- Forgot_Password Screen -->
+    <string name="forgot_password_text_view_header">Enter your email address and we\'ll send you a link to rest your password</string>
+    <string name="forgot_password_button_reset_password">Reset Password</string>
+
+    <!-- Login Screen -->
+    <string name="login_text_view_login_facebook">Quickly log in with:</string>
+    <string name="login_text_view_login_email">Or use your email:</string>
+    <string name="login_button_login">Log In</string>
+
+    <!-- Main Screen -->
+    <string name="main_view_button_log_in">Log In</string>
+    <string name="main_view_button_register">Register</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <!-- Merchant App Screen -->
+    <string name="merchant_app_text_view_get_app1">Get the Merchant App!</string>
+    <string name="merchant_app_text_view_get_app2">You must be a valid business in your area.  Simply click the install button below and place your deal.</string>
+    <string name="merchant_app_button_install">Install</string>
+
+    <!-- Merchant Info Screen -->
+    <string name="merchant_info_text_location_label">LOCATION</string>
+    <string name="merchant_info_text_directions">Directions</string>
+    <string name="merchant_info_text_website">Website</string>
+
+
+</resources>

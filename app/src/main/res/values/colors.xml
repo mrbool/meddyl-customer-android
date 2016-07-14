@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="green">#00FF00</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="default_screen_bg">#f9f9f9</color>
+    <color name="rounded_container_bg">#222222</color>
+    <color name="rounded_container_border">#3b3f44</color>
+    <color name="light_gray_header_color">#646663</color>
+    <color name="meddyl_blue">#6CB6F8</color>
+    <color name="meddyl_pink">#FF69B4</color>
+    <color name="white">#FFFFFF</color>
+    <color name="blue">#0000FF</color>
+    <color name="red">#FF0000</color>
+    <color name="black">#000000</color>
+    <color name="dark_gray">#565A5C</color>
+    <color name="light_gray">#c2b098</color>
+    <color name="gray_pink">#E3D8DD</color>
+    <color name="desaturated_blue">#324F72</color>
+    <color name="transparent">#00000000</color>
+</resources>

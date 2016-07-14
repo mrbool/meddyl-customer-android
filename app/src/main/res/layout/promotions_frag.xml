@@ -1,0 +1,74 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             tools:context="com.gtsoft.meddyl.customer.views.object.Promotions_Frag"
+             android:background="@color/white">
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:background="@color/white">
+
+            <com.gtsoft.meddyl.customer.system.gtsoft.GTTextView
+                android:id="@+id/txvPromotion"
+                android:layout_marginTop="@dimen/big_space"
+                android:maxLines="1"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                style="@style/text_view_dark_gray_26" />
+
+            <com.gtsoft.meddyl.customer.system.gtsoft.GTTextView
+                android:id="@+id/txvPromotionDesc"
+                android:layout_marginTop="@dimen/small_space"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                style="@style/text_view_dark_gray_22"  />
+
+            <View
+                android:id="@+id/vw1"
+                android:layout_width="fill_parent"
+                android:layout_marginTop="@dimen/big_space"
+                android:layout_height="1dip"
+                android:background="#BEBEBE"
+                android:visibility="invisible" />
+
+            <com.gtsoft.meddyl.customer.system.gtsoft.GTTextView
+                android:id="@+id/txvDeal"
+                android:layout_marginTop="@dimen/big_space"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                style="@style/text_view_dark_gray_26"
+                android:text="Refer your friends with your promo code and if they use it, you get free deals"
+                android:visibility="invisible" />
+
+            <com.gtsoft.meddyl.customer.system.gtsoft.GTButton
+                android:id="@+id/btnRefer"
+                android:layout_marginTop="@dimen/big_space"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:text="Refer Friends"
+                style="@style/button_pink"
+                android:visibility="invisible"/>
+
+            <com.gtsoft.meddyl.customer.system.gtsoft.GTTextView
+                android:id="@+id/txvPromoCode"
+                android:layout_marginTop="@dimen/big_space"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                style="@style/text_view_dark_gray_22" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</FrameLayout>

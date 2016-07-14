@@ -1,0 +1,117 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:focusable="true"
+             android:focusableInTouchMode="true"
+             tools:context="com.gtsoft.meddyl.customer.views.object.Search_Settings">
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+        <android.support.percent.PercentRelativeLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="@dimen/activity_horizontal_margin" >
+
+            <com.gtsoft.meddyl.customer.system.gtsoft.GTTextView
+                android:id="@+id/txvDistanceLabel"
+                android:layout_marginTop="@dimen/big_space"
+                android:layout_marginLeft="@dimen/small_space"
+                android:layout_marginStart="@dimen/small_space"
+                android:layout_marginRight="@dimen/small_space"
+                android:layout_marginEnd="@dimen/small_space"
+                style="@style/text_view_dark_gray_26"
+                android:text="Distance"
+                android:visibility="invisible"/>
+
+            <com.gtsoft.meddyl.customer.system.gtsoft.GTTextView
+                android:id="@+id/txvDistance"
+                android:layout_marginTop="@dimen/big_space"
+                android:layout_marginLeft="@dimen/small_space"
+                android:layout_marginStart="@dimen/small_space"
+                android:layout_marginRight="@dimen/small_space"
+                android:layout_marginEnd="@dimen/small_space"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                style="@style/text_view_dark_gray_26"
+                android:visibility="invisible"/>
+
+            <SeekBar
+                android:id="@+id/skbDistance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/big_space"
+                android:padding="@dimen/small_space"
+                android:layout_below="@+id/txvDistance"
+                android:visibility="invisible"/>
+
+            <com.gtsoft.meddyl.customer.system.gtsoft.GTTextView
+                android:id="@+id/txvSearchTypeLabel"
+                android:layout_marginTop="@dimen/big_space"
+                android:layout_marginLeft="@dimen/small_space"
+                android:layout_marginStart="@dimen/small_space"
+                android:layout_marginRight="@dimen/small_space"
+                android:layout_marginEnd="@dimen/small_space"
+                android:layout_below="@+id/skbDistance"
+                style="@style/text_view_dark_gray_26"
+                android:text="Select a location search type"
+                android:visibility="invisible"/>
+
+            <RadioGroup
+                android:id="@+id/rgLocationType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_space"
+                android:layout_below="@+id/txvSearchTypeLabel"  >
+
+                <com.gtsoft.meddyl.customer.system.gtsoft.GTRadioButton
+                    android:id="@+id/rbCurrentLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/small_space"
+                    android:layout_marginStart="@dimen/small_space"
+                    android:layout_marginRight="@dimen/small_space"
+                    android:layout_marginEnd="@dimen/small_space"
+                    style="@style/text_view_dark_gray_22"
+                    android:text="Current Location"
+                    android:visibility="invisible"/>
+
+                <com.gtsoft.meddyl.customer.system.gtsoft.GTRadioButton
+                    android:id="@+id/rbZipCode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/small_space"
+                    android:layout_marginStart="@dimen/small_space"
+                    android:layout_marginRight="@dimen/small_space"
+                    android:layout_marginEnd="@dimen/small_space"
+                    style="@style/text_view_dark_gray_22"
+                    android:text="Zip Code"
+                    android:visibility="invisible"/>
+
+            </RadioGroup>
+
+            <org.droidparts.widget.ClearableEditText
+                android:id="@+id/edtZipCode"
+                android:hint="Zip Code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/light_gray"
+                android:background="@drawable/edit_text_border_format"
+                android:layout_below="@+id/rgLocationType"
+                android:layout_marginTop="@dimen/small_space"
+                android:layout_marginLeft="@dimen/small_space"
+                android:layout_marginStart="@dimen/small_space"
+                android:layout_marginRight="@dimen/small_space"
+                android:layout_marginEnd="@dimen/small_space"
+                style="@style/edit_text_zip_code"
+                android:visibility="invisible"/>
+
+        </android.support.percent.PercentRelativeLayout>
+
+    </ScrollView>
+
+
+</FrameLayout>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rlMain"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:id="@+id/prlDealImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/transparent" >
+
+        <ImageView
+            android:id="@+id/imvDealImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:width="50dp"
+            android:height="50dp"
+            android:scaleType="fitXY" />
+
+        <ImageView
+            android:id="@+id/imvMerchantLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#000000"
+            android:padding="1dp"
+            android:layout_below="@+id/imvDealImage"
+            android:visibility="invisible"/>
+
+    </RelativeLayout>
+
+    <android.support.percent.PercentRelativeLayout
+        android:id="@+id/prlText"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:background="@color/white"
+        android:layout_below="@+id/prlDealImage" >
+
+        <com.gtsoft.meddyl.customer.system.gtsoft.GTTextView
+            android:id="@+id/txvCompanyName"
+            style="@style/text_view_dark_gray_26" />
+
+        <com.gtsoft.meddyl.customer.system.gtsoft.GTTextView
+            android:id="@+id/txvNeighborhood"
+            android:layout_marginTop="@dimen/small_space"
+            android:layout_below="@+id/txvCompanyName"
+            app:layout_widthPercent="70%"
+            android:maxLines="1"
+            android:ellipsize="marquee"
+            style="@style/text_view_dark_gray_19" />
+
+        <ImageView
+            android:id="@+id/imvStars"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="50dp"
+            android:height="50dp"
+            android:scaleType="fitXY"
+            android:layout_marginTop="@dimen/small_space"
+            android:layout_below="@+id/txvCompanyName" />
+
+        <com.gtsoft.meddyl.customer.system.gtsoft.GTTextView
+            android:id="@+id/txvDeal"
+            android:layout_marginTop="@dimen/small_space"
+            android:layout_marginBottom="@dimen/small_space"
+            android:layout_below="@+id/txvNeighborhood"
+            style="@style/text_view_dark_gray_26" />
+
+    </android.support.percent.PercentRelativeLayout>
+
+
+
+</RelativeLayout>

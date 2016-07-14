@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/imvCardType"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="@dimen/small_space"
+        android:scaleType="fitXY" />
+
+    <TextView
+        android:id="@+id/txtCardNumber"
+        android:layout_marginTop="@dimen/medium_space"
+        android:layout_marginLeft="@dimen/small_space"
+        style="@style/text_view_dark_gray_19"
+        android:layout_toRightOf="@+id/imvCardType"
+        android:layout_toEndOf="@+id/imvCardType"/>
+
+    <TextView
+        android:id="@+id/txtExpirationDate"
+        android:layout_marginTop="@dimen/small_space"
+        android:layout_marginLeft="@dimen/small_space"
+        style="@style/text_view_dark_gray_19"
+        android:text="09/17"
+        android:layout_below="@+id/txtCardNumber"
+        android:layout_toRightOf="@+id/imvCardType"
+        android:layout_toEndOf="@+id/imvCardType"/>
+
+    <ImageView
+        android:id="@+id/imvDefault"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="5dp"
+        android:scaleType="fitXY"
+        android:layout_marginRight="@dimen/big_space"
+        android:src="@drawable/green_check"/>
+
+    <TextView
+        android:id="@+id/txtCreditCardId"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
+
+</RelativeLayout>

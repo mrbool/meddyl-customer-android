@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin">
+
+    <com.gtsoft.meddyl.customer.system.gtsoft.GTTextView
+        android:id="@+id/txvLoginFacebook"
+        android:layout_marginTop="@dimen/small_space"
+        style="@style/text_view_dark_gray_19"
+        android:text="@string/login_text_view_login_facebook"/>
+
+    <org.droidparts.widget.ClearableEditText
+        android:id="@+id/edtFacebookZipCode"
+        android:hint="Zip Code"
+        android:textColorHint="@color/light_gray"
+        android:layout_marginTop="@dimen/small_space"
+        android:layout_below="@+id/txvLoginFacebook"
+        style="@style/edit_text_email"
+        android:visibility="gone"/>
+
+    <com.gtsoft.meddyl.customer.system.gtsoft.GTButton
+        android:id="@+id/btnLoginFacebook"
+        android:text="Facebook"
+        android:layout_marginTop="@dimen/small_space"
+        android:layout_below="@+id/edtFacebookZipCode"
+        style="@style/button_facebook_login"/>
+
+    <com.gtsoft.meddyl.customer.system.gtsoft.GTTextView
+        android:id="@+id/txvLoginEmail"
+        android:layout_marginTop="@dimen/big_space"
+        android:layout_below="@+id/btnLoginFacebook"
+        style="@style/text_view_dark_gray_19"
+        android:text="@string/login_text_view_login_email"/>
+
+    <org.droidparts.widget.ClearableEditText
+        android:id="@+id/edtEmail"
+        android:hint="Email"
+        android:textColorHint="@color/light_gray"
+        android:layout_marginTop="@dimen/small_space"
+        android:layout_below="@+id/txvLoginEmail"
+        style="@style/edit_text_email"/>
+
+    <org.droidparts.widget.ClearableEditText
+        android:id="@+id/edtPassword"
+        android:hint="Password"
+        android:textColorHint="@color/light_gray"
+        android:layout_marginTop="@dimen/small_space"
+        android:layout_below="@+id/edtEmail"
+        style="@style/edit_text_password"/>
+
+    <com.gtsoft.meddyl.customer.system.gtsoft.GTButton
+        android:id="@+id/btnLogin"
+        android:text="@string/login_button_login"
+        android:layout_marginTop="@dimen/small_space"
+        android:layout_below="@+id/edtPassword"
+        style="@style/button_gray"/>
+
+    <com.gtsoft.meddyl.customer.system.gtsoft.GTTextView
+        android:id="@+id/txvForgotPassword"
+        android:layout_marginTop="@dimen/big_space"
+        android:layout_below="@+id/btnLogin"
+        style="@style/text_view_blue_21"
+        android:text="I forgot my password"/>
+
+</android.support.percent.PercentRelativeLayout>

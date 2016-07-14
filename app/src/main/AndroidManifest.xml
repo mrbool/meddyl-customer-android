@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.gtsoft.meddyl.customer">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.SEND_SMS" />
+
+    <application
+        android:name=".application.Meddyl"
+        android:allowBackup="true"
+        android:icon="@mipmap/app_icon"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key"/>
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id"/>
+
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+
+        <activity android:name=".views.object.Certificate_Detail"
+                  android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".views.object.Credit_Card_Add"
+                  android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".views.object.Credit_Cards"
+                  android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".views.object.Customer_Edit"
+                  android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".views.object.Deal_Detail"
+                  android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".views.object.Deal_Purchase"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".views.object.Forgot_Password"
+                  android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".views.object.Login"
+                  android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".views.object.Main_View"
+                  android:screenOrientation="portrait"
+                  android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".views.object.Merchant_App"
+                  android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".views.object.Merchant_Info"
+                  android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".views.object.Register"
+                  android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".views.object.Search_Settings"
+                  android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".views.base.Tab_Controller"
+                  android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".views.object.Terms_Of_Service"
+                  android:screenOrientation="portrait">
+        </activity>
+    </application>
+
+</manifest>
+
+    <!--android:windowSoftInputMode="adjustPan"-->
