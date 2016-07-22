@@ -76,8 +76,8 @@ public class Credit_Card_Add extends View_Controller
         ClearableEditText edtZipCode = (ClearableEditText) findViewById(R.id.edtZipCode);
 
         String card_holder_name = edtCardHolderName.getText().toString().trim();
-        String card_number = edtCardNumber.getText().toString().trim();
-        String expiration_date = edtExpirationDate.getText().toString().trim().replaceAll("[^\\d]", "");;
+        String card_number = edtCardNumber.getText().toString().trim().replaceAll("[^\\d]", "");
+        String expiration_date = edtExpirationDate.getText().toString().trim().replaceAll("[^\\d]", "");
         String security_code = edtSecurityCode.getText().toString().trim();
         String zip_code = edtZipCode.getText().toString().trim();
 

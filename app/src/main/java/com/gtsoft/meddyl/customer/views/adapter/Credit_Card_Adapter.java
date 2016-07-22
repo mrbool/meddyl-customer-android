@@ -56,6 +56,9 @@ public class Credit_Card_Adapter extends ArrayAdapter<Credit_Card>
         AQuery aq = new AQuery(getContext());
         int resource_id = ((Activity)context).getResources().getIdentifier(credit_card_obj.getCreditCardTypeObj().getImage().toLowerCase().replace(".png","") , "drawable", ((Activity)context).getPackageName());
         aq.id(imvCardType).image(resource_id);
+        imvCardType.getLayoutParams().width = Double.valueOf(size.y * .1).intValue();
+        imvCardType.getLayoutParams().height = Double.valueOf(size.y * .1).intValue();
+        imvCardType.requestLayout();
 
         TextView txtCardNumber = (TextView)row.findViewById(R.id.txtCardNumber);
         TextView txtExpirationDate = (TextView)row.findViewById(R.id.txtExpirationDate);
@@ -66,8 +69,8 @@ public class Credit_Card_Adapter extends ArrayAdapter<Credit_Card>
         ImageView imvDefault = (ImageView) row.findViewById(R.id.imvDefault);
         if(credit_card_obj.getDefaultFlag())
         {
-            imvDefault.getLayoutParams().width = Double.valueOf(size.y * .065).intValue();
-            imvDefault.getLayoutParams().height = Double.valueOf(size.y * .065).intValue();
+            imvDefault.getLayoutParams().width = Double.valueOf(size.y * .045).intValue();
+            imvDefault.getLayoutParams().height = Double.valueOf(size.y * .045).intValue();
             imvDefault.requestLayout();
         }
         else

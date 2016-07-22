@@ -10,7 +10,7 @@ public class Base_Controller
 {
     protected boolean successful;
     protected String message;
-    protected String customer_service = "http://api.meddyl.com/1.10/services/CustomerService.svc/";
+    protected String customer_service = "https://api.meddyl.com/1.10/services/CustomerService.svc/";
     protected Application_Type application_type_obj;
     protected Login_Log login_log_obj;
 

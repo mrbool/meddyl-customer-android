@@ -50,7 +50,6 @@
                     <com.gtsoft.meddyl.customer.system.gtsoft.GTTextView
                         android:id="@+id/txvStatus"
                         android:layout_marginTop="@dimen/small_space"
-                        android:maxLines="1"
                         android:gravity="center"
                         android:layout_width="match_parent"
                         android:layout_gravity="center"

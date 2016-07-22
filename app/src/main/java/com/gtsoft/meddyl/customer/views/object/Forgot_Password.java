@@ -57,6 +57,18 @@ public class Forgot_Password extends View_Controller
         });
     }
 
+    @Override
+    public void Back()
+    {
+        Intent back_intent = new Intent();
+        back_intent.putExtra("deal_controller", deal_controller);
+        back_intent.putExtra("customer_controller", customer_controller);
+        back_intent.putExtra("system_controller", system_controller);
+        setResult(2, back_intent);
+
+        finish();
+    }
+
     private void Forgot_Password()
     {
         user_name = ((ClearableEditText) findViewById(R.id.edtEmail)).getText().toString().trim();
@@ -141,6 +153,12 @@ public class Forgot_Password extends View_Controller
                                 public void onClick(DialogInterface dialog, int which)
                                 {
                                     dialog.cancel();
+
+                                    Intent back_intent = new Intent();
+                                    back_intent.putExtra("deal_controller", deal_controller);
+                                    back_intent.putExtra("customer_controller", customer_controller);
+                                    back_intent.putExtra("system_controller", system_controller);
+                                    setResult(2, back_intent);
 
                                     finish();
                                 }

@@ -177,15 +177,15 @@ public class Customer_Edit extends View_Controller
             builder.setCancelable(false);
             builder.setTitle("Cancel");
             builder.setMessage("You have unsaved changes, are you sure you want to cancel?")
-                    .setNegativeButton("Yes", new DialogInterface.OnClickListener()
+                    .setNegativeButton("No", null)
+                    .setPositiveButton("Yes", new DialogInterface.OnClickListener()
                     {
                         @Override
                         public void onClick(DialogInterface dialog, int whichButton)
                         {
                             finish();
                         }
-                    })
-                    .setPositiveButton("No", null).show();
+                    }).show();
         }
         else
         {

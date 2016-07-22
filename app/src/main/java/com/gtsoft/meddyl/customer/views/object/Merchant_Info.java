@@ -165,7 +165,7 @@ public class Merchant_Info extends View_Controller implements OnMapReadyCallback
         /* stars image */
         ImageView imvStars = (ImageView) findViewById(R.id.imvStars);
 
-        if(merchant_obj.getMerchantRatingObj() == null)
+        if(merchant_obj.getMerchantRatingObj() == null || merchant_obj.getMerchantRatingObj().getImage() == null)
         {
             imvStars.setVisibility(View.GONE);
         }

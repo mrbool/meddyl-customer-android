@@ -785,7 +785,7 @@ public class REST_CustomerService
 
 		System_Error system_error_obj = new System_Error();
 		system_error_obj.setCode(500);
-		system_error_obj.setMessage("No Internet Connectin");
+		system_error_obj.setMessage("No Internet Connection");
 
 		json_error_response = new JSONErrorResponse();
 		json_error_response.setSuccessful(json_response.getSuccessful());

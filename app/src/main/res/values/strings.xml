@@ -56,4 +56,10 @@
     <string name="merchant_info_text_website">Website</string>
 
 
+    <!-- Login Screen -->
+    <string name="register_text_view_login_facebook">Quickly log in with:</string>
+    <string name="register_text_view_login_email">Or use your email:</string>
+    <string name="register_button_register">Register</string>
+
+
 </resources>

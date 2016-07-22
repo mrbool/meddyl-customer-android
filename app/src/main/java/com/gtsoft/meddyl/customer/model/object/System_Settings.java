@@ -25,8 +25,7 @@ public class System_Settings implements Parcelable
 	private int customer_deal_range_default;
 	private int customer_deal_range_max;
 	private int customer_deal_range_min;
-	private int customer_description_characters;
-	private String customer_description_default;
+	private String deal_fine_print;
 	private String deal_instructions_default;
 	private int deal_min_ranking;
 	private int deal_max_ranking;
@@ -67,6 +66,8 @@ public class System_Settings implements Parcelable
 	private String merchant_app_terms;
 	private boolean merchant_contact_approve;
 	private boolean merchant_contact_validate;
+	private int merchant_description_characters;
+	private String merchant_description_default;
 	private int password_reset_days;
 	private String pci_key;
 	private int percent_off_default;
@@ -119,8 +120,7 @@ public class System_Settings implements Parcelable
 		out.writeInt(customer_deal_range_default);
 		out.writeInt(customer_deal_range_max);
 		out.writeInt(customer_deal_range_min);
-		out.writeInt(customer_description_characters);
-		out.writeString(customer_description_default);
+		out.writeString(deal_fine_print);
 		out.writeString(deal_instructions_default);
 		out.writeInt(deal_min_ranking);
 		out.writeInt(deal_max_ranking);
@@ -161,6 +161,8 @@ public class System_Settings implements Parcelable
 		out.writeString(merchant_app_terms);
 		out.writeByte((byte) (merchant_contact_approve ? 1:0));
 		out.writeByte((byte) (merchant_contact_validate ? 1:0));
+		out.writeInt(merchant_description_characters);
+		out.writeString(merchant_description_default);
 		out.writeInt(password_reset_days);
 		out.writeString(pci_key);
 		out.writeInt(percent_off_default);
@@ -183,7 +185,7 @@ public class System_Settings implements Parcelable
 		out.writeParcelable(login_log_obj, flag);
 	}
 
-	public static final Parcelable.Creator<System_Settings> CREATOR = new Parcelable.Creator<System_Settings>() 
+	public static final Creator<System_Settings> CREATOR = new Creator<System_Settings>()
 	{
 		public System_Settings createFromParcel(Parcel in)
 		{
@@ -215,8 +217,7 @@ public class System_Settings implements Parcelable
 		customer_deal_range_default = in.readInt();
 		customer_deal_range_max = in.readInt();
 		customer_deal_range_min = in.readInt();
-		customer_description_characters = in.readInt();
-		customer_description_default = in.readString();
+		deal_fine_print = in.readString();
 		deal_instructions_default = in.readString();
 		deal_min_ranking = in.readInt();
 		deal_max_ranking = in.readInt();
@@ -257,6 +258,8 @@ public class System_Settings implements Parcelable
 		merchant_app_terms = in.readString();
 		merchant_contact_approve = in.readByte() != 0;
 		merchant_contact_validate = in.readByte() != 0;
+		merchant_description_characters = in.readInt();
+		merchant_description_default = in.readString();
 		password_reset_days = in.readInt();
 		pci_key = in.readString();
 		percent_off_default = in.readInt();
@@ -432,22 +435,13 @@ public class System_Settings implements Parcelable
 		this.customer_deal_range_min = customer_deal_range_min;
 	}
 
-	public int getCustomerDescriptionCharacters()
+	public String getDealFinePrint()
 	{
-		return this.customer_description_characters;
+		return this.deal_fine_print;
 	}
-	public void setCustomerDescriptionCharacters(int customer_description_characters)
+	public void setDealFinePrint(String deal_fine_print)
 	{
-		this.customer_description_characters = customer_description_characters;
-	}
-
-	public String getCustomerDescriptionDefault()
-	{
-		return this.customer_description_default;
-	}
-	public void setCustomerDescriptionDefault(String customer_description_default)
-	{
-		this.customer_description_default = customer_description_default;
+		this.deal_fine_print = deal_fine_print;
 	}
 
 	public String getDealInstructionsDefault()
@@ -808,6 +802,24 @@ public class System_Settings implements Parcelable
 	public void setMerchantContactValidate(boolean merchant_contact_validate)
 	{
 		this.merchant_contact_validate = merchant_contact_validate;
+	}
+
+	public int getMerchantDescriptionCharacters()
+	{
+		return this.merchant_description_characters;
+	}
+	public void setMerchantDescriptionCharacters(int merchant_description_characters)
+	{
+		this.merchant_description_characters = merchant_description_characters;
+	}
+
+	public String getMerchantDescriptionDefault()
+	{
+		return this.merchant_description_default;
+	}
+	public void setMerchantDescriptionDefault(String merchant_description_default)
+	{
+		this.merchant_description_default = merchant_description_default;
 	}
 
 	public int getPasswordResetDays()

@@ -29,7 +29,9 @@ import com.gtsoft.meddyl.customer.system.gtsoft.GTTextView;
 
 public class View_Controller extends AppCompatActivity
 {
-    protected static boolean debug = true;
+    protected TextView txtHeaderTitle;
+
+    protected static boolean debug = false;
     protected boolean edited;
     protected boolean successful;
     protected System_Successful system_successful_obj;
@@ -100,7 +102,7 @@ public class View_Controller extends AppCompatActivity
             actionBarLayout = (ViewGroup) getLayoutInflater().inflate(R.layout.action_bar_2, null);
         }
 
-        TextView txtHeaderTitle = (TextView) actionBarLayout.findViewById(R.id.txtHeaderTitle);
+        txtHeaderTitle = (TextView) actionBarLayout.findViewById(R.id.txtHeaderTitle);
         txtHeaderTitle.setText(screen_title);
 
         if(right_button == "")

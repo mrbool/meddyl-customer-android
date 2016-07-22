@@ -6,11 +6,13 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.DatePicker;
 import android.widget.RelativeLayout;
@@ -40,6 +42,8 @@ public class Tab_Controller extends View_Controller
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
     RelativeLayout rloOuterLayout;
+
+    Fragment fragment;
 
     private DatePickerDialog.OnDateSetListener date;
     final private Calendar myCalendar = Calendar.getInstance();
@@ -153,11 +157,24 @@ public class Tab_Controller extends View_Controller
             mBottomBar.show();
 
             fragmentTransaction = fragmentManager.beginTransaction();
-            Fragment fragment;
+//            Fragment fragment;
             fragment = new Deals_Frag();
             fragment.setArguments(bundle);
             fragmentTransaction.replace(R.id.mainLinearLayout, fragment);
             fragmentTransaction.commit();
+
+            txtHeaderTitle = (GTTextView) findViewById(R.id.txtHeaderTitle);
+            txtHeaderTitle.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View view)
+                {
+                    Deals_Frag fragmentx = (Deals_Frag) fragment;
+                    fragmentx.Scroll_Up();
+
+                }
+            });
+
         }
         else if (menuItemId == R.id.bb_menu_certificate)
         {

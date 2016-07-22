@@ -105,6 +105,18 @@ public class Certificate_Detail extends View_Controller implements OnMapReadyCal
         imvMerchantLogo.getLayoutParams().width = Double.valueOf(screen_width * .25).intValue();
         imvMerchantLogo.getLayoutParams().height = Double.valueOf(screen_width * .25).intValue();
         imvMerchantLogo.requestLayout();
+        imvMerchantLogo.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                Intent intent = new Intent(getApplicationContext(), Merchant_Info.class);
+                intent.putExtra("system_controller", system_controller);
+                intent.putExtra("customer_controller", customer_controller);
+                intent.putExtra("deal_controller", deal_controller);
+                startActivity(intent);
+            }
+        });
 
         AQuery aq = new AQuery(getApplicationContext());
         aq.id(imvMerchantLogo).image(merchant_obj.getImage());

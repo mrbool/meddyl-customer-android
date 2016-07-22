@@ -60,6 +60,8 @@ public class Deals_Frag extends Fragment_Controller
         customer_controller = getArguments().getParcelable("customer_controller");
         deal_controller = getArguments().getParcelable("deal_controller");
 
+        //GTTextView txtHeaderTitle = (GTTextView) actionBarLayout.findViewById(R.id.txtHeaderTitle);
+
         srlDeal = (SwipeRefreshLayout) rootView.findViewById(R.id.srlDeal);
         srlNoDeals = (SwipeRefreshLayout) rootView.findViewById(R.id.srlNoDeals);
 
@@ -129,6 +131,10 @@ public class Deals_Frag extends Fragment_Controller
         get_deals_async.execute((Void) null);
     }
 
+    public void Scroll_Up()
+    {
+        lvDeals.setSelection(0);
+    }
 
     public void showPopup(String text)
     {

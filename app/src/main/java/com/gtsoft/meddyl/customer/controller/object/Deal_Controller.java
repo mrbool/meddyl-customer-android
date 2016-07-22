@@ -432,6 +432,8 @@ public class Deal_Controller extends Base_Controller implements Parcelable
 		system_error_obj = null;
 		system_successful_obj = null;
 
+		Certificate_Payment certificate_payment_obj_hold = certificate_payment_obj;
+
 		promotion_activity_obj = new Promotion_Activity();
 		promotion_activity_obj.setPromotionObj(promotion_obj);
 
@@ -456,6 +458,7 @@ public class Deal_Controller extends Base_Controller implements Parcelable
 		if (!successful)
 		{
 			system_error_obj = i_rest.getJSONErrorResponse().getSystemError();
+			certificate_payment_obj = certificate_payment_obj_hold;
 		}
 		else
 		{

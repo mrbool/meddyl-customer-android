@@ -1,5 +1,6 @@
 package com.gtsoft.meddyl.customer.views.object;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -41,8 +42,9 @@ public class Login extends View_Controller
     private String auth_token;
     private static final List<String> PERMISSIONS = Arrays.asList("public_profile", "email", "user_friends");
 
-    CallbackManager callbackManager;
-    ClearableEditText edtFacebookZipCode;
+    private CallbackManager callbackManager;
+    private ClearableEditText edtFacebookZipCode;
+    private ClearableEditText edtEmail;
 
     private Login_Async login_async = null;
     private Login_With_Facebook_Async login_with_facebook_async = null;
@@ -108,6 +110,8 @@ public class Login extends View_Controller
             }
         });
 
+        edtEmail = (ClearableEditText) findViewById(R.id.edtEmail);
+
         Button btnLogin = (Button) findViewById(R.id.btnLogin);
         btnLogin.setOnClickListener(new View.OnClickListener()
         {
@@ -128,9 +132,9 @@ public class Login extends View_Controller
                 intent.putExtra("system_controller", system_controller);
                 intent.putExtra("customer_controller", customer_controller);
                 intent.putExtra("deal_controller", deal_controller);
-                startActivity(intent);
-            }
-        });
+                startActivityForResult(intent, 2);
+    }
+});
     }
 
     @Override
@@ -160,6 +164,18 @@ public class Login extends View_Controller
         super.onActivityResult(requestCode, resultCode, data);
         callbackManager.onActivityResult(requestCode, resultCode, data);
         //uiHelper.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == 2)
+        {
+            deal_controller = data.getExtras().getParcelable("deal_controller");
+            customer_controller = data.getExtras().getParcelable("customer_controller");
+            system_controller = data.getExtras().getParcelable("system_controller");
+
+            if (customer_controller.getContactObj() != null && customer_controller.getContactObj().getUserName() != null)
+            {
+                edtEmail.setText(customer_controller.getContactObj().getUserName());
+            }
+        }
     }
 
     @Override

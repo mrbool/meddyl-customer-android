@@ -108,15 +108,23 @@ public class Deals_Adapter extends ArrayAdapter<Deal>
         /* set stars */
         int stars_width = Double.valueOf(image_width * .275).intValue();
 
-        AQuery aq_stars = new AQuery(getContext());
-        int resource_id = ((Activity)context).getResources().getIdentifier(merchant_obj.getMerchantRatingObj().getImage().toLowerCase().replace(".png","") , "drawable", ((Activity)context).getPackageName());
-        aq_stars.id(imvStars).image(resource_id);
+        if(merchant_obj.getMerchantRatingObj().getImage() != null)
+        {
+            AQuery aq_stars = new AQuery(getContext());
+            int resource_id = ((Activity) context).getResources().getIdentifier(merchant_obj.getMerchantRatingObj().getImage().toLowerCase().replace(".png", ""), "drawable", ((Activity) context).getPackageName());
+            aq_stars.id(imvStars).image(resource_id);
 
-        ViewGroup.LayoutParams params_stars = (ViewGroup.LayoutParams)imvStars.getLayoutParams();
-        params_stars.width = stars_width;
-        params_stars.height = stars_width/5;
-        imvStars.setLayoutParams(params_stars);
-        imvStars.setX(image_width - (stars_width) - (Double.valueOf(stars_width * .25).intValue()));
+            ViewGroup.LayoutParams params_stars = (ViewGroup.LayoutParams) imvStars.getLayoutParams();
+            params_stars.width = stars_width;
+            params_stars.height = stars_width / 5;
+            imvStars.setLayoutParams(params_stars);
+            imvStars.setX(image_width - (stars_width) - (Double.valueOf(stars_width * .25).intValue()));
+            imvStars.setVisibility(View.VISIBLE);
+        }
+        else
+        {
+            imvStars.setVisibility(View.INVISIBLE);
+        }
 
         /* set text */
         txvCompanyName.setText(merchant_obj.getCompanyName());

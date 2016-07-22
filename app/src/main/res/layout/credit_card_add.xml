@@ -33,7 +33,7 @@
 
         <org.droidparts.widget.ClearableEditText
             android:id="@+id/edtExpirationDate"
-            android:hint="(Exp. (mm/yy)"
+            android:hint="Exp. (mm/yy)"
             android:layout_marginTop="@dimen/small_space"
             android:layout_marginRight="5dp"
             android:layout_height="wrap_content"
@@ -47,6 +47,7 @@
             android:layout_marginLeft="5dp"
             android:layout_height="wrap_content"
             android:layout_weight=".50"
+            android:maxLength="4"
             style="@style/edit_text_number" />
 
     </LinearLayout>
