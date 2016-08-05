@@ -329,6 +329,12 @@ public class Search_Settings extends View_Controller
                                 {
                                     dialog.cancel();
 
+                                    Intent back_intent = new Intent();
+                                    back_intent.putExtra("deal_controller", deal_controller);
+                                    back_intent.putExtra("customer_controller", customer_controller);
+                                    back_intent.putExtra("system_controller", system_controller);
+                                    setResult(1, back_intent);
+
                                     finish();
                                 }
                             }).create().show();

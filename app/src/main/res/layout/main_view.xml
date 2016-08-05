@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingBottom="@dimen/activity_vertical_margin"
-                android:paddingLeft="@dimen/activity_horizontal_margin"
-                android:paddingRight="@dimen/activity_horizontal_margin"
-                android:paddingTop="@dimen/activity_vertical_margin"
-                android:background="@drawable/main"
-                android:orientation="vertical"
-                tools:context=".views.object.Main_View" >
+<android.support.percent.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/main"
+    android:orientation="vertical"
+    tools:context=".views.object.Main_View">
 
-    <ImageView android:layout_width="wrap_content" android:id="@+id/imvMain"
-               android:src="@drawable/logo_white_630x190" android:layout_height="wrap_content"
-               android:paddingTop="150dp"/>
+    <ImageView android:layout_width="wrap_content"
+               android:id="@+id/imvMain"
+               android:src="@drawable/logo_white_630x190"
+               android:layout_height="wrap_content"
+               app:layout_marginTopPercent="30%"
+               android:layout_centerHorizontal="true" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -42,6 +47,6 @@
 
     </LinearLayout>
 
-</RelativeLayout>
+</android.support.percent.PercentRelativeLayout>
 
 

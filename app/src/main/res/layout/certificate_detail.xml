@@ -157,7 +157,8 @@
                           android:layout_width="match_parent"
                           android:layout_height="200dp"
                           android:layout_marginTop="@dimen/big_space"
-                          tools:layout="@layout/certificate_detail"/>
+                          tools:layout="@layout/certificate_detail"
+                          android:visibility="gone"/>
                 <!--tools:context="com.gtsoft.meddyl.customer.views.object.MapsActivity"-->
                 <!--"com.google.android.gms.maps.SupportMapFragment"-->
 
@@ -191,7 +192,8 @@
                         android:layout_below="@+id/txvAddress2"
                         android:textColor="@color/blue"
                         style="@style/text_view_dark_gray_19"
-                        android:text="@string/merchant_info_text_directions"/>
+                        android:text="@string/merchant_info_text_directions"
+                        android:visibility="invisible" />
 
                     <com.gtsoft.meddyl.customer.system.gtsoft.GTTextView
                         android:id="@+id/txvPhone"
@@ -210,7 +212,8 @@
                         android:layout_below="@+id/txvPhone"
                         android:textColor="@color/blue"
                         style="@style/text_view_dark_gray_19"
-                        android:text="@string/merchant_info_text_website" />
+                        android:text="@string/merchant_info_text_website"
+                        android:visibility="invisible" />
 
                     <View
                         android:id="@+id/vw4"

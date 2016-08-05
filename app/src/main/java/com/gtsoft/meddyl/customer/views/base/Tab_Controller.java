@@ -9,6 +9,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -71,6 +72,7 @@ public class Tab_Controller extends View_Controller
 
         mBottomBar = BottomBar.attach(this, savedInstanceState);
         mBottomBar.useFixedMode();
+        mBottomBar.noTabletGoodness();
         mBottomBar.setDefaultTabPosition(selected_tab);
         mBottomBar.setActiveTabColor(Color.parseColor("#D50F25"));
         mBottomBar.setTextAppearance(R.style.bottom_bar_text);
@@ -102,6 +104,13 @@ public class Tab_Controller extends View_Controller
                 Update_Expiration_Date();
             }
         };
+    }
+
+    /* Callback received when a permissions request has been completed. */
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults)
+    {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
     private void Update_Expiration_Date()

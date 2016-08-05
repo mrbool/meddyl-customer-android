@@ -20,8 +20,8 @@ android {
         applicationId "com.gtsoft.meddyl.customer"
         minSdkVersion 15
         targetSdkVersion 23
-        versionCode 3
-        versionName "1.9.3"
+        versionCode 6
+        versionName "1.9.6"
         multiDexEnabled true
     }
     buildTypes {

@@ -1463,6 +1463,11 @@ public class Customer_Controller extends Base_Controller implements Parcelable
 		return this.has_gps_service;
 	}
 
+	public void setHasGpsService(Boolean has_gps_service)
+	{
+		this.has_gps_service = has_gps_service;
+	}
+
 	public Double getLatitude()
 	{
 		return this.latitude;

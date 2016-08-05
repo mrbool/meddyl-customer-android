@@ -34,44 +34,51 @@
                     android:paddingRight="@dimen/activity_horizontal_margin"
                     android:orientation="vertical">
 
-                    <com.gtsoft.meddyl.customer.system.gtsoft.GTTextView
-                        android:id="@+id/txvCompanyName"
-                        android:layout_marginTop="25dp"
+                    <RelativeLayout
+                        android:id="@+id/rloCompanyInfo"
                         android:layout_width="match_parent"
-                        style="@style/text_view_dark_gray_26" />
+                        android:layout_height="match_parent" >
 
-                    <ImageView
-                        android:id="@+id/imvLogo"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:width="50dp"
-                        android:height="50dp"
-                        android:scaleType="fitXY"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginTop="20dp"
-                        android:background="#000000"
-                        android:padding="1dp"
-                        android:visibility="invisible"/>
+                        <com.gtsoft.meddyl.customer.system.gtsoft.GTTextView
+                                android:id="@+id/txvCompanyName"
+                                android:layout_marginTop="25dp"
+                                android:layout_width="match_parent"
+                                style="@style/text_view_dark_gray_26" />
 
-                    <com.gtsoft.meddyl.customer.system.gtsoft.GTTextView
-                        android:id="@+id/txvNeighborhood"
-                        android:layout_marginTop="10dp"
-                        android:maxLines="1"
-                        android:layout_width="match_parent"
-                        android:layout_below="@+id/txvCompanyName"
-                        style="@style/text_view_dark_gray_19"/>
+                        <ImageView
+                            android:id="@+id/imvLogo"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:width="50dp"
+                            android:height="50dp"
+                            android:scaleType="fitXY"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginTop="20dp"
+                            android:background="#000000"
+                            android:padding="1dp"
+                            android:visibility="invisible"/>
 
-                    <ImageView
-                        android:id="@+id/imvStars"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:width="50dp"
-                        android:height="50dp"
-                        android:scaleType="fitXY"
-                        android:layout_marginTop="@dimen/small_space"
-                        android:layout_below="@+id/txvNeighborhood"
-                        android:visibility="invisible"/>
+                        <com.gtsoft.meddyl.customer.system.gtsoft.GTTextView
+                            android:id="@+id/txvNeighborhood"
+                            android:layout_marginTop="10dp"
+                            android:maxLines="1"
+                            android:layout_width="match_parent"
+                            android:layout_below="@+id/txvCompanyName"
+                            style="@style/text_view_dark_gray_19"/>
+
+                        <ImageView
+                            android:id="@+id/imvStars"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:width="50dp"
+                            android:height="50dp"
+                            android:scaleType="fitXY"
+                            android:layout_marginTop="@dimen/small_space"
+                            android:layout_below="@+id/txvNeighborhood"
+                            android:visibility="invisible"/>
+
+                    </RelativeLayout>
 
                     <View
                         android:id="@+id/vw1"
@@ -79,7 +86,7 @@
                         android:layout_marginTop="@dimen/big_space"
                         android:layout_height="1dip"
                         android:background="#BEBEBE"
-                        android:layout_below="@+id/imvStars"
+                        android:layout_below="@+id/rloCompanyInfo"
                         android:visibility="invisible" />
 
                     <com.gtsoft.meddyl.customer.system.gtsoft.GTTextView

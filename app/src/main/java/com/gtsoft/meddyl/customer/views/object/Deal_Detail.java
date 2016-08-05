@@ -122,7 +122,7 @@ public class Deal_Detail extends View_Controller implements OnMapReadyCallback
             @Override
             public void onClick(View view)
             {
-                deal_controller.setDealObj(deal_controller.getCertificateObj().getDealObj());
+                //deal_controller.setDealObj(deal_controller.getCertificateObj().getDealObj());
 
                 Intent intent = new Intent(getApplicationContext(), Merchant_Info.class);
                 intent.putExtra("system_controller", system_controller);

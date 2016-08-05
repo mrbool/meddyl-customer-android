@@ -1,12 +1,17 @@
 package com.gtsoft.meddyl.customer.views.object;
 
+import android.Manifest;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.os.AsyncTask;
+import android.os.Build;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Base64;
@@ -50,11 +55,12 @@ public class Main_View extends View_Controller
         setContentView(R.layout.main_view);
 
         // Add code to print out the key hash
-        try {
-            PackageInfo info = getPackageManager().getPackageInfo(
-                    "com.gtsoft.meddyl.customer",
-                    PackageManager.GET_SIGNATURES);
-            for (Signature signature : info.signatures) {
+        try
+        {
+            PackageInfo info = getPackageManager().getPackageInfo("com.gtsoft.meddyl.customer",PackageManager.GET_SIGNATURES);
+
+            for (Signature signature : info.signatures)
+            {
                 MessageDigest md = MessageDigest.getInstance("SHA");
                 md.update(signature.toByteArray());
                 Log.d("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT));
@@ -83,12 +89,22 @@ public class Main_View extends View_Controller
             @Override
             public void onClick(View view)
             {
+                int has_permission = 0;
+
+                if (Build.VERSION.SDK_INT >= 23)
+                {
+                    has_permission = Check_Permission(Manifest.permission.ACCESS_FINE_LOCATION, false);
+                }
+
                 action = "login";
 
-                Get_Location();
+                if(has_permission == 0)
+                {
+                    Get_Location();
 
-                load_system_settings_async = new Load_System_Settings_Async();
-                load_system_settings_async.execute((Void) null);
+                    load_system_settings_async = new Load_System_Settings_Async();
+                    load_system_settings_async.execute((Void) null);
+                }
             }
         });
 
@@ -110,6 +126,35 @@ public class Main_View extends View_Controller
         Auto_Login();
     }
 
+    /* Callback received when a permissions request has been completed. */
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults)
+    {
+        if (requestCode == 123)
+        {
+            if(grantResults[0] == 0)
+            {
+                Get_Location();
+            }
+            else
+            {
+                contact_gps_log_obj.setLatitude(0);
+                contact_gps_log_obj.setLongitude(0);
+
+                customer_controller.setContactGPSLogObj(contact_gps_log_obj);
+                customer_controller.setHasGpsService(false);
+            }
+
+            load_system_settings_async = new Load_System_Settings_Async();
+            load_system_settings_async.execute((Void) null);
+
+            //request_times = 0;
+        }
+        else
+        {
+            super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+    }
 
     @Override
     public void onResume()
@@ -182,11 +227,20 @@ public class Main_View extends View_Controller
     {
         public Load_System_Settings_Async()
         {
+            if(!action.equals("auto_login"))
+                dialog = new ProgressDialog(Main_View.this);
         }
 
         @Override
         protected void onPreExecute()
         {
+            if(!action.equals("auto_login"))
+            {
+                dialog.setMessage("Loading");
+                dialog.setCancelable(false);
+                dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                dialog.show();
+            }
         }
 
         @Override
@@ -204,6 +258,14 @@ public class Main_View extends View_Controller
         {
             try
             {
+                if(!action.equals("auto_login"))
+                {
+                    if (dialog.isShowing())
+                    {
+                        dialog.dismiss();
+                    }
+                }
+
                 if (successful)
                 {
                     if(action.equals("login"))
@@ -248,6 +310,11 @@ public class Main_View extends View_Controller
         protected void onCancelled()
         {
             load_system_settings_async = null;
+
+            if (dialog.isShowing())
+            {
+                dialog.dismiss();
+            }
         }
     }
 

@@ -1,5 +1,6 @@
 package com.gtsoft.meddyl.customer.views.object;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
@@ -10,8 +11,10 @@ import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.DisplayMetrics;
@@ -29,6 +32,7 @@ import android.widget.ListView;
 import android.widget.PopupWindow;
 
 import com.gtsoft.meddyl.customer.R;
+import com.gtsoft.meddyl.customer.model.object.Contact_GPS_Log;
 import com.gtsoft.meddyl.customer.model.object.Deal;
 import com.gtsoft.meddyl.customer.system.gtsoft.GTButton;
 import com.gtsoft.meddyl.customer.system.gtsoft.GTTextView;
@@ -38,12 +42,15 @@ import com.gtsoft.meddyl.customer.views.base.Tab_Controller;
 
 public class Deals_Frag extends Fragment_Controller
 {
+    int gps_call =0;
+
     View anchorView;
     private SwipeRefreshLayout srlDeal;
     private ListView lvDeals;
     private SwipeRefreshLayout srlNoDeals;
 
     private Deal[] deals_array;
+    private Contact_GPS_Log contact_gps_log_obj;
 
     private Get_Deals_Async get_deals_async = null;
 
@@ -61,6 +68,10 @@ public class Deals_Frag extends Fragment_Controller
         deal_controller = getArguments().getParcelable("deal_controller");
 
         //GTTextView txtHeaderTitle = (GTTextView) actionBarLayout.findViewById(R.id.txtHeaderTitle);
+
+        contact_gps_log_obj = new Contact_GPS_Log();
+        contact_gps_log_obj.setLatitude(0);
+        contact_gps_log_obj.setLongitude(0);
 
         srlDeal = (SwipeRefreshLayout) rootView.findViewById(R.id.srlDeal);
         srlNoDeals = (SwipeRefreshLayout) rootView.findViewById(R.id.srlNoDeals);
@@ -112,8 +123,29 @@ public class Deals_Frag extends Fragment_Controller
             }
         });
 
-        get_deals_async = new Get_Deals_Async();
-        get_deals_async.execute((Void) null);
+        if(customer_controller.getCustomerObj().getCustomerSearchLocationTypeObj().getSearchLocationTypeId() == 1)
+        {
+            int has_permission = 0;
+
+            if (Build.VERSION.SDK_INT >= 23)
+            {
+                has_permission = Check_Permission(Manifest.permission.ACCESS_FINE_LOCATION, false, gps_call);
+                gps_call++;
+            }
+
+            if(has_permission == 0)
+            {
+                Get_Location();
+
+                get_deals_async = new Get_Deals_Async();
+                get_deals_async.execute((Void) null);
+            }
+        }
+        else
+        {
+            get_deals_async = new Get_Deals_Async();
+            get_deals_async.execute((Void) null);
+        }
 
         return rootView;
     }
@@ -122,14 +154,58 @@ public class Deals_Frag extends Fragment_Controller
     public void onActivityResult(int requestCode, int resultCode, Intent data)
     {
         super.onActivityResult(requestCode, resultCode, data);
-//
-//        deal_controller =  data.getExtras().getParcelable("deal_controller");
-//        customer_controller =  data.getExtras().getParcelable("customer_controller");
-//        system_controller =  data.getExtras().getParcelable("system_controller");
+
+        if(requestCode == 1)
+        {
+            deal_controller = data.getExtras().getParcelable("deal_controller");
+            customer_controller = data.getExtras().getParcelable("customer_controller");
+            system_controller = data.getExtras().getParcelable("system_controller");
+        }
+
+        if(customer_controller.getCustomerObj().getCustomerSearchLocationTypeObj().getSearchLocationTypeId() == 1)
+        {
+            Get_Location();
+        }
 
         get_deals_async = new Get_Deals_Async();
         get_deals_async.execute((Void) null);
     }
+
+    /* Callback received when a permissions request has been completed. */
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults)
+    {
+        if (requestCode == 123)
+        {
+            if(grantResults[0] == 0)
+            {
+                Get_Location();
+            }
+
+            get_deals_async = new Get_Deals_Async();
+            get_deals_async.execute((Void) null);
+
+            request_times = 0;
+        }
+        else
+        {
+            super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+    }
+
+    private void Get_Location()
+    {
+        customer_controller.Get_Location(getActivity());
+        Boolean has_gps_service = customer_controller.getHasGpsService();
+
+        if((has_gps_service) && !(customer_controller.getLatitude() == 0 && customer_controller.getLongitude() == 0))
+        {
+            contact_gps_log_obj.setLatitude(customer_controller.getLatitude());
+            contact_gps_log_obj.setLongitude(customer_controller.getLongitude());
+        }
+
+        customer_controller.setContactGPSLogObj(contact_gps_log_obj);
+    }
+
 
     public void Scroll_Up()
     {
@@ -157,20 +233,34 @@ public class Deals_Frag extends Fragment_Controller
             {
                 String packageName = ((Tab_Controller)getActivity()).getPackageName();
 
-                try
-                {
-                    //Open the specific App Info page:
-//                    Intent intent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-                    Intent intent = new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-                    intent.setData(Uri.parse("package:" + packageName));
-                    startActivity(intent);
+                int has_permission = 0;
 
-                }
-                catch (ActivityNotFoundException e)
+                if (Build.VERSION.SDK_INT >= 23)
                 {
-                    //Open the generic Apps page:
-                    Intent intent = new Intent(android.provider.Settings.ACTION_MANAGE_APPLICATIONS_SETTINGS);
-                    startActivity(intent);
+                    has_permission = Check_Permission(Manifest.permission.ACCESS_FINE_LOCATION, true, gps_call);
+                    gps_call++;
+                }
+
+                if(has_permission == 0)
+                {
+                    try
+                    {
+                        //Open the specific App Info page:
+//                    Intent intent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                        Intent intent = new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                        intent.setData(Uri.parse("package:" + packageName));
+                        startActivityForResult(intent, 2);
+
+                    } catch (ActivityNotFoundException e)
+                    {
+                        //Open the generic Apps page:
+                        Intent intent = new Intent(android.provider.Settings.ACTION_MANAGE_APPLICATIONS_SETTINGS);
+                        startActivityForResult(intent, 2);
+                    }
+                }
+                else
+                {
+                    popupWindow.dismiss();
                 }
             }
         });
@@ -198,6 +288,8 @@ public class Deals_Frag extends Fragment_Controller
             public void onClick(View view)
             {
                 popupWindow.dismiss();
+
+                Get_Location();
 
                 get_deals_async = new Get_Deals_Async();
                 get_deals_async.execute((Void) null);

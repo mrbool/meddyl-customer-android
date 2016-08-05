@@ -27,6 +27,7 @@ import com.gtsoft.meddyl.customer.model.object.Contact;
 import com.gtsoft.meddyl.customer.model.object.Customer;
 import com.gtsoft.meddyl.customer.model.object.Deal;
 import com.gtsoft.meddyl.customer.model.object.Merchant;
+import com.gtsoft.meddyl.customer.system.gtsoft.GTButton;
 import com.gtsoft.meddyl.customer.system.gtsoft.GTTextView;
 import com.gtsoft.meddyl.customer.system.gtsoft.Utils;
 import com.gtsoft.meddyl.customer.views.adapter.Certificates_Adapter;
@@ -42,6 +43,7 @@ public class Certificate_Detail extends View_Controller implements OnMapReadyCal
     private Merchant merchant_obj;
 
     private GoogleMap mpvMap;
+    private SupportMapFragment map_fragment;
 
     private Get_Certificate_Detail_Async get_certificate_detail_async = null;
 
@@ -122,8 +124,9 @@ public class Certificate_Detail extends View_Controller implements OnMapReadyCal
         aq.id(imvMerchantLogo).image(merchant_obj.getImage());
 
         /* set map */
-        SupportMapFragment map_fragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mpvMap);
+        map_fragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mpvMap);
         map_fragment.getMapAsync(Certificate_Detail.this);
+        map_fragment.getView().setVisibility(View.INVISIBLE);
 
         GTTextView txvDirections = (GTTextView) findViewById(R.id.txvDirections);
         txvDirections.setOnClickListener(new View.OnClickListener()
@@ -179,7 +182,6 @@ public class Certificate_Detail extends View_Controller implements OnMapReadyCal
         ((View)findViewById(R.id.vw3)).setVisibility(View.VISIBLE);
         ((View)findViewById(R.id.vw4)).setVisibility(View.VISIBLE);
         ((View)findViewById(R.id.vw5)).setVisibility(View.VISIBLE);
-
     }
 
     @Override
@@ -193,6 +195,8 @@ public class Certificate_Detail extends View_Controller implements OnMapReadyCal
         CameraPosition cameraPosition = new CameraPosition.Builder().target(coordinates).zoom(12.0f).build();
         CameraUpdate cameraUpdate = CameraUpdateFactory.newCameraPosition(cameraPosition);
         map.moveCamera(cameraUpdate);
+
+        map_fragment.getView().setVisibility(View.VISIBLE);
     }
 
 

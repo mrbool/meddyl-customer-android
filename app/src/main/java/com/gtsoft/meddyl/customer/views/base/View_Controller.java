@@ -1,15 +1,18 @@
 package com.gtsoft.meddyl.customer.views.base;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.view.Display;
@@ -17,6 +20,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
@@ -31,6 +35,8 @@ public class View_Controller extends AppCompatActivity
 {
     protected TextView txtHeaderTitle;
 
+    final private int REQUEST_CODE_ASK_PERMISSIONS = 123;
+    protected int request_times=0;
     protected static boolean debug = false;
     protected boolean edited;
     protected boolean successful;
@@ -268,7 +274,7 @@ public class View_Controller extends AppCompatActivity
         String button;
         String title;
 
-        if(system_error_obj.getCode() == 6000)
+        if(system_error_obj.getCode() == 5001)
         {
             title = "Software Upgrade Needed";
             error_message = system_error_obj.getMessage();
@@ -285,28 +291,36 @@ public class View_Controller extends AppCompatActivity
         builder.setCancelable(false);
         builder.setMessage(error_message)
                 .setTitle(title)
-                .setNeutralButton(button, new DialogInterface.OnClickListener()
+                .setPositiveButton(button, new DialogInterface.OnClickListener()
                 {
                     public void onClick(DialogInterface dialog, int which)
                     {
-                        dialog.cancel();
 
-                        if (system_error_obj.getCode() == 6000)
-                        {
-                            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.gtsoft.visopa.visopa_customer"));
-
-                            if (intent.resolveActivity(getPackageManager()) != null)
-                            {
-                                startActivity(intent);
-                            }
-                        }
-//                        else
-//                        {
-//                            finish();
-//                            //System.exit(0);
-//                        }
                     }
-                }).create().show();
+                });
+        final AlertDialog dialog = builder.create();
+        dialog.show();
+        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                if (system_error_obj.getCode() == 5001)
+                {
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + getApplicationContext().getPackageName()));
+
+                    if (intent.resolveActivity(getPackageManager()) != null)
+                    {
+                        startActivity(intent);
+                    }
+                }
+                else
+                {
+                    dialog.dismiss();
+                }
+                //else dialog stays open. Make sure you have an obvious way to close the dialog especially if you set cancellable to false.
+            }
+        });
     }
 
     public void Show_Alert_Dialog(String title, String message)
@@ -322,6 +336,15 @@ public class View_Controller extends AppCompatActivity
                 });
         AlertDialog alert = builder.create();
         alert.show();
+    }
+
+    public void Show_Alert_Dialog(String title, String message, DialogInterface.OnClickListener okListener)
+    {
+        new AlertDialog.Builder(this)
+                .setMessage(message)
+                .setPositiveButton(title, okListener)
+                .create()
+                .show();
     }
 
     public void showPopup(View anchorView, String text)
@@ -389,6 +412,63 @@ public class View_Controller extends AppCompatActivity
     public void Debug()
     {
 
+    }
+
+    public int Check_Permission(final String permission, Boolean enforce)
+    {
+        int has_permission = checkSelfPermission(permission);
+
+        if (has_permission != PackageManager.PERMISSION_GRANTED)
+        {
+            if (!shouldShowRequestPermissionRationale(permission) && (request_times > 0))
+            {
+                if(enforce)
+                {
+                    String title = "";
+
+                    if (permission.equals(Manifest.permission.ACCESS_FINE_LOCATION))
+                    {
+                        title = "You need to allow GPS access";
+                    }
+                    else if (permission.equals(Manifest.permission.WRITE_EXTERNAL_STORAGE))
+                    {
+                        title = "You need to allow storage access";
+                    }
+                    else if (permission.equals(Manifest.permission.CALL_PHONE))
+                    {
+                        title = "You need to allow access phone access";
+                    }
+
+                    Show_Alert_Dialog("Ok", title,
+                            new DialogInterface.OnClickListener()
+                            {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which)
+                                {
+                                    Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+                                            Uri.fromParts("package", getPackageName(), null));
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                    startActivity(intent);
+
+                                    //requestPermissions(new String[] {permission}, REQUEST_CODE_ASK_PERMISSIONS);
+                                }
+                            });
+                }
+                else
+                {
+                    requestPermissions(new String[] {permission}, REQUEST_CODE_ASK_PERMISSIONS);
+                }
+
+                return has_permission;
+            }
+
+            requestPermissions(new String[] {permission}, REQUEST_CODE_ASK_PERMISSIONS);
+            request_times++;
+
+            return has_permission;
+        }
+
+        return has_permission;
     }
 
 }
