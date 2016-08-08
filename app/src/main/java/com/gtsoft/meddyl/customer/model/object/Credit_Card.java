@@ -23,6 +23,7 @@ public class Credit_Card implements Parcelable
 	private Credit_Card_Type credit_card_type_obj;
 	private Customer customer_obj;
 	private Merchant_Contact merchant_contact_obj;
+	private String security_code;
 	private Application_Type application_type_obj;
 	private Login_Log login_log_obj;
 
@@ -55,11 +56,12 @@ public class Credit_Card implements Parcelable
 		out.writeParcelable(credit_card_type_obj, flag);
 		out.writeParcelable(customer_obj, flag);
 		out.writeParcelable(merchant_contact_obj, flag);
+		out.writeString(security_code);
 		out.writeParcelable(application_type_obj, flag);
 		out.writeParcelable(login_log_obj, flag);
 	}
 
-	public static final Parcelable.Creator<Credit_Card> CREATOR = new Parcelable.Creator<Credit_Card>() 
+	public static final Creator<Credit_Card> CREATOR = new Creator<Credit_Card>()
 	{
 		public Credit_Card createFromParcel(Parcel in)
 		{
@@ -89,6 +91,7 @@ public class Credit_Card implements Parcelable
 		credit_card_type_obj = in.readParcelable(Credit_Card_Type.class.getClassLoader());
 		customer_obj = in.readParcelable(Customer.class.getClassLoader());
 		merchant_contact_obj = in.readParcelable(Merchant_Contact.class.getClassLoader());
+		security_code = in.readString();
 		application_type_obj = in.readParcelable(Application_Type.class.getClassLoader());
 		login_log_obj = in.readParcelable(Login_Log.class.getClassLoader());
 	}
@@ -226,6 +229,15 @@ public class Credit_Card implements Parcelable
 	public void setMerchantContactObj(Merchant_Contact merchant_contact_obj)
 	{
 		this.merchant_contact_obj = merchant_contact_obj;
+	}
+
+	public String getSecurityCode()
+	{
+		return this.security_code;
+	}
+	public void setSecurityCode(String security_code)
+	{
+		this.security_code = security_code;
 	}
 
 	public Application_Type getApplicationTypeObj()

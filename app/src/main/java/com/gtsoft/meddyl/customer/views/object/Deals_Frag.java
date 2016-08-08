@@ -1,33 +1,25 @@
 package com.gtsoft.meddyl.customer.views.object;
 
 import android.Manifest;
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.BitmapFactory;
 import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 
@@ -66,8 +58,6 @@ public class Deals_Frag extends Fragment_Controller
         system_controller = getArguments().getParcelable("system_controller");
         customer_controller = getArguments().getParcelable("customer_controller");
         deal_controller = getArguments().getParcelable("deal_controller");
-
-        //GTTextView txtHeaderTitle = (GTTextView) actionBarLayout.findViewById(R.id.txtHeaderTitle);
 
         contact_gps_log_obj = new Contact_GPS_Log();
         contact_gps_log_obj.setLatitude(0);
@@ -231,6 +221,8 @@ public class Deals_Frag extends Fragment_Controller
             @Override
             public void onClick(View view)
             {
+                popupWindow.dismiss();
+
                 String packageName = ((Tab_Controller)getActivity()).getPackageName();
 
                 int has_permission = 0;
@@ -246,21 +238,16 @@ public class Deals_Frag extends Fragment_Controller
                     try
                     {
                         //Open the specific App Info page:
-//                    Intent intent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
                         Intent intent = new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-                        intent.setData(Uri.parse("package:" + packageName));
                         startActivityForResult(intent, 2);
 
                     } catch (ActivityNotFoundException e)
                     {
                         //Open the generic Apps page:
                         Intent intent = new Intent(android.provider.Settings.ACTION_MANAGE_APPLICATIONS_SETTINGS);
+                        intent.setData(Uri.parse("package:" + packageName));
                         startActivityForResult(intent, 2);
                     }
-                }
-                else
-                {
-                    popupWindow.dismiss();
                 }
             }
         });
@@ -271,13 +258,13 @@ public class Deals_Frag extends Fragment_Controller
             @Override
             public void onClick(View view)
             {
+                popupWindow.dismiss();
+
                 Intent intent = new Intent(getActivity(), Search_Settings.class);
                 intent.putExtra("system_controller", system_controller);
                 intent.putExtra("customer_controller", customer_controller);
                 intent.putExtra("deal_controller", deal_controller);
                 startActivityForResult(intent, 1);
-
-                popupWindow.dismiss();
             }
         });
 
@@ -405,4 +392,5 @@ public class Deals_Frag extends Fragment_Controller
             }
         }
     }
+
 }

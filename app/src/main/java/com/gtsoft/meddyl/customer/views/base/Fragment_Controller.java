@@ -89,10 +89,7 @@ public class Fragment_Controller extends Fragment
                                 {
                                     Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
                                             Uri.fromParts("package", getActivity().getPackageName(), null));
-                                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                     startActivityForResult(intent, 2);
-
-                                    //requestPermissions(new String[] {permission}, REQUEST_CODE_ASK_PERMISSIONS);
                                 }
                             });
                 }

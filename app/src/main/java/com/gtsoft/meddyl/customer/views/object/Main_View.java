@@ -89,22 +89,9 @@ public class Main_View extends View_Controller
             @Override
             public void onClick(View view)
             {
-                int has_permission = 0;
-
-                if (Build.VERSION.SDK_INT >= 23)
-                {
-                    has_permission = Check_Permission(Manifest.permission.ACCESS_FINE_LOCATION, false);
-                }
-
                 action = "login";
 
-                if(has_permission == 0)
-                {
-                    Get_Location();
-
-                    load_system_settings_async = new Load_System_Settings_Async();
-                    load_system_settings_async.execute((Void) null);
-                }
+                Next();
             }
         });
 
@@ -116,10 +103,7 @@ public class Main_View extends View_Controller
             {
                 action = "register";
 
-                Get_Location();
-
-                load_system_settings_async = new Load_System_Settings_Async();
-                load_system_settings_async.execute((Void) null);
+                Next();
             }
         });
 
@@ -175,6 +159,25 @@ public class Main_View extends View_Controller
     {
         super.onDestroy();
         //uiHelper.onDestroy();
+    }
+
+    @Override
+    public void Next()
+    {
+        int has_permission = 0;
+
+        if (Build.VERSION.SDK_INT >= 23)
+        {
+            has_permission = Check_Permission(Manifest.permission.ACCESS_FINE_LOCATION, false);
+        }
+
+        if(has_permission == 0)
+        {
+            Get_Location();
+
+            load_system_settings_async = new Load_System_Settings_Async();
+            load_system_settings_async.execute((Void) null);
+        }
     }
 
     private void Auto_Login()

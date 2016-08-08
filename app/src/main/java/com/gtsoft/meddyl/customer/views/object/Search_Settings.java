@@ -202,12 +202,24 @@ public class Search_Settings extends View_Controller
                         @Override
                         public void onClick(DialogInterface dialog, int whichButton)
                         {
+                            Intent back_intent = new Intent();
+                            back_intent.putExtra("deal_controller", deal_controller);
+                            back_intent.putExtra("customer_controller", customer_controller);
+                            back_intent.putExtra("system_controller", system_controller);
+                            setResult(1, back_intent);
+
                             finish();
                         }
                     }).show();
         }
         else
         {
+            Intent back_intent = new Intent();
+            back_intent.putExtra("deal_controller", deal_controller);
+            back_intent.putExtra("customer_controller", customer_controller);
+            back_intent.putExtra("system_controller", system_controller);
+            setResult(1, back_intent);
+
             finish();
         }
     }

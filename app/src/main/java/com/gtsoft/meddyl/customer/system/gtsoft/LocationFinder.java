@@ -53,6 +53,7 @@ public class LocationFinder implements LocationListener
                 {
                     // make request for new location
                     locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
+                    //locationManager.requestSingleUpdate(LocationManager.GPS_PROVIDER, this, null);
                 }
             }
         }
