@@ -82,6 +82,9 @@ public class Certificate_Detail extends View_Controller implements OnMapReadyCal
         Contact contact_obj = certificate_obj.getCustomerObj().getContactObj();
         merchant_obj = certificate_obj.getDealObj().getMerchantContactObj().getMerchantObj();
 
+        /* set this to view merchant info screen */
+        deal_controller.setDealObj(deal_obj);
+
         SimpleDateFormat date_format =  new SimpleDateFormat("M/d/yyyy");
         Date entry_date = certificate_obj.getAssignedDate();
         Date expiration_date = certificate_obj.getExpirationDate();
